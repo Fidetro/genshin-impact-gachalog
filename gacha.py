@@ -11,7 +11,7 @@ import datetime
 configs = [{"config_type":"301","config_name":"角色活动祈愿"},{"config_type":"302","config_name":"武器活动祈愿"},{"config_type":"200","config_name":"常驻祈愿"}]
 
 
-def avgRank(rankArray,configName) :
+def avgRank(rankArray,configName,currentCount) :
     length = len(rankArray)
     escape = "\n"
     total_count = 0   
@@ -20,10 +20,11 @@ def avgRank(rankArray,configName) :
         return configName+"没有数据"
     for rankJSON in rankArray :
         count = rankJSON["count"]
-        name = rankJSON["name"]
+        name = rankJSON["name"]        
         total_count += count
-        log += "    "+name+" "+str(count)+" 次"+escape
-    log += "    "+configName+"平均5星:"+" "+str(total_count/length)+" 次"+escape
+        log += "    "+name+" "+str(count)+" 抽"+escape
+    log += "    "+configName+"平均5星:"+" "+str(total_count/length)+" 抽"+escape
+    log += "    "+configName+"已累计:"+" "+str(currentCount)+" 抽未出5星"+escape
     log += "============================================"+escape
     return log
     
@@ -93,8 +94,10 @@ def main() :
                 row += 1
         workbook.save("./genshin_"+config_name+".xls")
         allData.reverse()
+        currentCount = 0
         for  data in allData:
             rankCount += 1
+            currentCount += 1
             rank_type = data["rank_type"]
             name = data["name"]
             if rank_type == "5":            
@@ -102,8 +105,9 @@ def main() :
                 rankJSON["count"] = rankCount
                 rankJSON["name"] = name
                 rankArray.append(rankJSON)
-                rankCount = 0
-        print_str += avgRank(rankArray,config['config_name'])+"\n"
+                currentCount = 0
+                rankCount = 0        
+        print_str += avgRank(rankArray,config['config_name'],currentCount)+"\n"
     print(print_str)
 
 main()

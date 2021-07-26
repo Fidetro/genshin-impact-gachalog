@@ -16,6 +16,7 @@
 python3 gacha.py 'https://hk4e-api.mihoyo.com/event/gacha_info/api/getGachaLog?xxxxx'
 ```
 3、 预期会出现：
+```
 ============================================
     魈 75 抽
     魈 76 抽

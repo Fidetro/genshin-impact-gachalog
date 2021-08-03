@@ -16,14 +16,15 @@ def avgRank(rankArray,configName,currentCount) :
     escape = "\n"
     total_count = 0   
     log = "============================================"+escape
-    if length == 0:
-        return configName+"没有数据"
+    # if length == 0:
+    #     return configName+"没有数据"
     for rankJSON in rankArray :
         count = rankJSON["count"]
         name = rankJSON["name"]        
         total_count += count
         log += "    "+name+" "+str(count)+" 抽"+escape
-    log += "    "+configName+"平均5星:"+" "+str(total_count/length)+" 抽"+escape
+    if length != 0:
+        log += "    "+configName+"平均5星:"+" "+str(total_count/length)+" 抽"+escape
     log += "    "+configName+"已累计:"+" "+str(currentCount)+" 抽未出5星"+escape
     log += "============================================"+escape
     return log

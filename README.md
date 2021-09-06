@@ -1,4 +1,4 @@
-# Mac端原神抽卡记录导出（需自行抓包）
+# Mac端原神抽卡记录导出
 由于看了好几个repository都没看到支持Mac，所以决定自己动手写一个脚本，有一定门槛，需要懂抓包&基础的终端命令才会用。  
 如果有什么问题，可以到[Issues](https://github.com/Fidetro/genshin-impact-gachalog/issues)上提
 
@@ -9,8 +9,11 @@
 - 显示已累计多少抽未抽出5星
 # 使用方式  
 
-1. 自行抓包拿到祈愿记录的接口`https://hk4e-api.mihoyo.com/event/gacha_info/api/getGachaLog`,图中用的是`Charles`  
-![](https://github.com/Fidetro/genshin-impact-gachalog/blob/master/ad8aa7045d0457d582071fd321d49553.png?raw=true)
+1. 打开游戏->反馈->账号问题->历史设备临时处理->通行证账号管理->复制链接 或者 自行抓包拿到祈愿记录的接口`https://hk4e-api.mihoyo.com/event/gacha_info/api/getGachaLog`,图中用的是`Charles`  
+![](https://github.com/Fidetro/genshin-impact-gachalog/blob/master/ad8aa7045d0457d582071fd321d49553.png?raw=true)  
+
+
+
 2. 复制对应的接口url后，执行脚本  
 ```shell
 python3 gacha.py 'https://hk4e-api.mihoyo.com/event/gacha_info/api/getGachaLog?xxxxx'

@@ -1,5 +1,5 @@
 # Mac端原神抽卡记录导出
-由于看了好几个repository都没看到支持Mac，所以决定自己动手写一个脚本，有一定门槛，需要懂~~抓包~~&基础的终端命令才会用。  
+由于看了好几个repository都没看到支持Mac，所以决定自己动手写一个脚本，有一定门槛，需要~~懂抓包~~&基础的终端命令才会用。  
 如果有什么问题，可以到[Issues](https://github.com/Fidetro/genshin-impact-gachalog/issues)上提
 
 # 功能  
